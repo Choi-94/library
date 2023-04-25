@@ -1,13 +1,18 @@
 package com.icia.lib.service;
 
 import com.icia.lib.dto.BookDTO;
+import com.icia.lib.repository.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 
 public class BookService {
-    public String savemethod(BookDTO bookDTO){
+    @Autowired
+    private BookRepository bookRepository;
+    public int savemethod(BookDTO bookDTO){
         System.out.println("bookDTO = " + bookDTO);
-        return "index";
+        int result = bookRepository.save(bookDTO);
+        return 0;
     }
 }

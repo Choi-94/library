@@ -15,9 +15,17 @@ public class BookController {
     @PostMapping("/save-param")
     public String savemethod(@ModelAttribute BookDTO bookDTO){
         List<BookDTO> bookDTOList = new ArrayList<>();
-        bookService.savemethod(bookDTO);
+
         bookDTOList.add(bookDTO);
-        return "index";
+        int saveResult = bookService.savemethod(bookDTO);
+        if(saveResult >0){
+            System.out.println("등록성공");
+            return "index";
+        }else{
+            System.out.println("등록실패");
+            return "index";
+        }
+
     }
     @Autowired
     private BookService bookService;

@@ -13,11 +13,11 @@
 <body>
 <a href="/" ;>index로 가기</a>
 <form action="/save-param" method="post">
-    <input type="text" name="bookName"><br>
-    <input type="text" name="bookPublisher"><br>
-    <input type="text" name="bookAuthor"><br>
-    <input type="text" name="bookPrice">
-    <input type="submit" value="전송">
+    <input type="text" name="bookName" placeholder="제목"><br>
+    <input type="text" name="bookPublisher" placeholder="출판사"><br>
+    <input type="text" name="bookAuthor" placeholder="저자"><br>
+    <input type="text" name="bookPrice" placeholder="정가">
+    <input type="submit" value="등록">
 </form>
 </body>
 </html>
