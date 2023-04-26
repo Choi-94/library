@@ -33,4 +33,10 @@ public class BookService {
         BookDTO bookDTO = bookRepository.selectOne(id);
         return bookDTO;
     }
+    public void update(BookDTO bookDTO){
+        bookRepository.update(bookDTO);
+    }
+    public void delete(int id){
+        bookRepository.delete(id);
+    }
 }

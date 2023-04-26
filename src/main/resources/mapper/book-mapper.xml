@@ -14,4 +14,11 @@
     <select id="selectOne" resultType="book" parameterType="int">
         select * from book_table where id = #{id}
     </select>
+    <update id="update" parameterType="book">
+        update book_table set bookName=#{bookName}, bookPrice=#{bookPrice}
+            where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from book_table where id = #{id}
+    </delete>
 </mapper>

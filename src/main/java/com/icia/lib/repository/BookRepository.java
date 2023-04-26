@@ -24,4 +24,10 @@ public class BookRepository {
     public BookDTO selectOne(int id){
         return sql.selectOne("Book.selectOne",id);
     }
+    public void update(BookDTO bookDTO){
+        sql.update("Book.update",bookDTO);
+    }
+    public void delete(int id){
+        sql.delete("Book.delete",id);
+    }
 }

@@ -17,23 +17,26 @@
 
 </style>
 <body>
-    <h2>list.jsp</h2>
-    <table class="table table-dark table-hover">
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>bookpublisher</th>
-            <th>bookauthor</th>
-            <th>bookprice</th>
-        </tr>
-        <tr>
-            <c:forEach items="${m1}" var="book">
-            <td>${book.id}</td>
-            <td>${book.bookName}</td>
-            <td>${book.bookPublisher}</td>
-            <td>${book.bookAuthor}</td>
-            <td>${book.bookPrice}</td>
-            <td>
+<h2>list.jsp</h2>
+<table class="table table-dark table-hover">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>bookpublisher</th>
+        <th>bookauthor</th>
+        <th>bookprice</th>
+        <th>조회</th>
+        <th>수정</th>
+        <th>삭제</th>
+    </tr>
+    <tr>
+        <c:forEach items="${m1}" var="book">
+        <td>${book.id}</td>
+        <td>${book.bookName}</td>
+        <td>${book.bookPublisher}</td>
+        <td>${book.bookAuthor}</td>
+        <td>${book.bookPrice}</td>
+        <td>
                 <%--상세조회를 위한 요청주소 : detail
                  같이 보내줘야하는 값 id
                  detail 요청을 처리하는 컨트롤러 메서드를 만들고
@@ -41,14 +44,33 @@
                  BookRepoository에서는 sql.selectOne()을 사용하고
                  mapper에서는 parameterType="Long"으로 주고
                  resultType="book"으로 하면 됩니다. --%>
-                <a href="/detail?id=${book.id}">조회</a>
-            </td>
-        </tr>
-            </c:forEach>
+            <a href="/detail?id=${book.id}">${book.bookName}조회</a>
+        </td>
+        <td>
+            <button onclick="detail_book('${book.id}')">조회</button>
+        </td>
+        <td>
+            <button onclick="update_book('${book.id}')">조회</button>
+        </td>
+        <td>
+            <button onclick="delete_book('${book.id}')">조회</button>
+        </td>
+    </tr>
+    </c:forEach>
 
-    </table>
-
+</table>
 
 
 </body>
+<script>
+    const detail_book = (id) => {
+        location.href = "/detail?id=" + id;
+    }
+    const update_book = (id) => {
+        location.href = "/update?id=" + id;
+    }
+    const delete_book = (id) => {
+        location.href = "/delete?id=" + id;
+    }
+</script>
 </html>
